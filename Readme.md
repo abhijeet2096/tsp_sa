@@ -40,7 +40,7 @@ we used the [classical geometric cooling schedule](https://view.officeapps.live.
 
 1. Clone the above repo by 
 	```
-	 $ git clone https://github.com/akhilsinghal1234/Bayesian-Classifier 
+	 $ git clone https://github.com/abhijeet2096/tsp_sa
 	```
 2. Spawn terminal in cloned folder.
 3. Compile using `$ make` .
