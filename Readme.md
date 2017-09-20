@@ -1,4 +1,4 @@
-# Travelling Saleman Problem Solution By Modified Algo
+# Travelling Saleman Problem Solution By Modified Simulated Annealing Algorithm
 
 ## T.S.P
 > TSP problem is one of the most famous hard combinatorial optimization problems. It belongs to the class of NP-hard optimization problems.
@@ -46,7 +46,7 @@ we used the [classical geometric cooling schedule](https://view.officeapps.live.
 3. Compile using `$ make` .
 4. Run above program as 
 	```
-	 $ ./tsp < /TestCases/euc_100
+	 $ ./tsp < ./TestCases/euc_100
 	```
 5. Check stdout for output !
 
