@@ -1,4 +1,4 @@
-# Travelling Saleman Problem Solution By Modified Algo
+# Travelling Saleman Problem Solution By Modified Simulated Annealing Algorithm
 
 ## T.S.P
 > TSP problem is one of the most famous hard combinatorial optimization problems. It belongs to the class of NP-hard optimization problems.
@@ -33,20 +33,20 @@ we used the [Greedy hybrid operator](http://www.inderscience.com/info/inarticle.
 2. *Insert* operator : It cycles down the sub-path from indexes 'i' and 'j'. 
 3. *swap* operator : It swapes the path[i] and path[j] elements.
 
-## Temperator coooling.
+## Temperator Simulation.
 we used the [classical geometric cooling schedule](https://view.officeapps.live.com/op/view.aspx?src=http://www.cs.nott.ac.uk/~pszgxk/aim/notes/simulatedannealing.doc) for simulated temperature cooling. 
 
 ## Instruction
 
 1. Clone the above repo by 
 	```
-	 $ git clone https://github.com/akhilsinghal1234/Bayesian-Classifier 
+	 $ git clone https://github.com/abhijeet2096/tsp_sa
 	```
 2. Spawn terminal in cloned folder.
-3. Compile using `$ Make` .
+3. Compile using `$ make` .
 4. Run above program as 
 	```
-	 $ ./tsp < /TestCases/euc_100
+	 $ ./tsp < ./TestCases/euc_100
 	```
 5. Check stdout for output !
 
