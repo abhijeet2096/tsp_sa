@@ -55,12 +55,12 @@ Results are displayed below in table.
 
 | TestCase      | Distance      | 
 | ------------- |:-------------:| 
-| euc_100       | 1522.217651   | 
+| euc_100       | 1497.217651   | 
 | euc_250       | 2516.678467   | 
 | euc_500       | 3554.416260   |
 | noneuc_100    | 5216.49072    | 
 | noneuc_250    | 12799.088867  | 
-| noneuc_500    | 25437.474609  | 
+| noneuc_500    | 25380.828125  | 
 
 ## About
 The Assignment's aim was to solve Travelling salesman problem. This Assignement was under Prof. [Deepak Khemani](https://www.iitm.ac.in/info/fac/khemani).
