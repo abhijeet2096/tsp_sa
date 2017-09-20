@@ -1,3 +1,11 @@
+/***************************
+*Travellling Salesman Problem 
+*V1.01
+*Date 20/09/2017
+*Algorithm : S.A.
+****************************/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -13,6 +21,7 @@ typedef struct coordinate
 	float y;
 }c;
 
+//declaration of various functions
 void dealocate(float **edge,int n);
 float cal_cost(float **edge,int path[],int n);
 int minima(float a,float b,float c);
@@ -29,30 +38,36 @@ int main(){
 	int n;
 	int a,b;
 	float r,p,T;
+
+
 	scanf("%s%d",type,&n);
-	c city[n];
+	
+	c city[n]; //data type for storing coordinates
 	float *edge[n];
     for (int i=0; i<n; i++)
          edge[i] = (float *)malloc(n * sizeof(float));
-	int path_c[n+1];
-	int path_nr[n+1];
-	int path_ni[n+1];
-	int path_ns[n+1];
-	int path_b[n+1];
+	int path_c[n+1]; //for storing current path
+	int path_nr[n+1]; //for storing path using revese methord
+	int path_ni[n+1]; // for storing path using insert methord
+	int path_ns[n+1]; //for storing path using swap methord
+	int path_b[n+1]; //storing best path
 	for (int i = 0; i < n; ++i)
 	{
 		scanf("%f %f",&city[i].x,&city[i].y);
+		//initializing every path
 		path_c[i]=i;
 		path_nr[i]=i;
 		path_ni[i]=i;
 		path_ns[i]=i;
 		path_b[i]=i;
 	}
+	//completing out intial path
 	path_c[n] =0;
 	path_nr[n] =0;
 	path_ni[n] =0;
 	path_ns[n] =0;
 	path_b[n] =0;
+	//various variable to store cost using differnet methord
 	float cost_r,cost_c,cost_i,cost_s,cost_b,delta;
 	for (int i = 0; i < n; ++i)
 	{
@@ -62,10 +77,10 @@ int main(){
 		}
 		
 	}
-	 int temp,choice;	
-	 int counter = 0;
+	int temp,choice;	
+	int counter = 0;
 	int k = 10;
-	 srand ( time(NULL) );
+	srand ( time(NULL) );
 		while(1)
 		{
 			
@@ -98,7 +113,6 @@ int main(){
 
 				  	 choice = minima(cost_r,cost_i,cost_s);
 				  	 r = (float) (rand()/ (float) RAND_MAX);
-				  	// choice =1;
 				  	 switch(choice)
 				  	 {
 				  	 	case 1:
@@ -125,7 +139,6 @@ int main(){
 				  	 if(cost_c < cost_b){
 				  	 	copyarr(path_b,path_c,n);
 				  	 	printf("COST_BEST :: %f\n",cost_c);
-				  	 	//print_path(path_b,n);
 				  	 	counter=0;
 				  	 }
 				  	 else
@@ -147,22 +160,20 @@ int main(){
 			 }
 
 		}
-	//printf("\nThe Cost is %f",cal_cost(edge,n,path_c));
-
+	
 	//dealocate(edge,n);
 	return 0;
 }
-
+//function to calculate cost of every path
 float cal_cost(float **edge,int path[],int n){
-	float cost=0;;
+	float cost=0;
 	for (int i = 1; i < n; ++i)
 	{
-	 	
-		 cost= cost + edge[path[i]][path[i-1]];
-		 //	printf("%f",cost);		
+	 	 cost= cost + edge[path[i]][path[i-1]];
 	}
 	return cost;
 }
+//function to deallocate memory
 void dealocate(float **edge,int n){
 	for (int i = 0; i < n; ++i)
 	{	
@@ -170,6 +181,7 @@ void dealocate(float **edge,int n){
 	}
 	free(edge);
 }
+//methord one for finding neighbouring path
 void inverse(int path[],int n,int a ,int b){
 	int temp;
 	for (int i = 0; i <= (b-a)/2; ++i)
@@ -180,6 +192,7 @@ void inverse(int path[],int n,int a ,int b){
 	}
 
 }
+//methord two for finding neighbouring path
 void insert(int path[],int n , int a, int b){
 	int temp = path[b];
 	for (int i = 0; i <= b-a-1; ++i)
@@ -188,12 +201,14 @@ void insert(int path[],int n , int a, int b){
 	}
 	path[a] = temp;
 }
+//methord three for finding neighbouring path
 void swap(int path[],int n, int a,int b){
 	int temp;
 	temp = path[a];
 	path[a] = path[b];
 	path[b] = temp;
 }
+//function to calculate minimum of three values
 int minima(float a,float b,float c){
 	float min;
 	min = a;
@@ -208,6 +223,7 @@ int minima(float a,float b,float c){
 	else
 		return 3;
 }
+//utility funciton to print path
 void print_path(int path[],int n){
 	for (int i = 0; i < n; ++i)
 	{
@@ -215,12 +231,14 @@ void print_path(int path[],int n){
 	}
 	printf("\n");
 }
+//utility function to copy array
 void copyarr(int a[],int b[],int n){
 	for (int i = 0; i < n; ++i)
 	{
 		a[i] = b[i];
 	}
 }
+//function to calculate probability
 float cal_prob(float delta,float T){
 	 return 1/(1+ exp(delta/T));
 
