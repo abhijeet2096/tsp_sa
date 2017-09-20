@@ -1,10 +1,10 @@
-# Travelling Saleman Problem Solution By Modified Simulated Annealing Algorithm
+# Travelling Salesman Problem Solution By Modified Simulated Annealing Algorithm
 
 ## T.S.P
 > TSP problem is one of the most famous hard combinatorial optimization problems. It belongs to the class of NP-hard optimization problems.
 > This means that no polynomial time algorithm is known to guarantee its global optimal solution. Consider a salesman who has to visit
 > cities. The TSP problem consists of finding the shortest tour through all the cities such that no city is visited twice and the 
-> salesmanreturns back to the starting city at the end of the tour.
+> salesman returns back to the starting city at the end of the tour.
 
 'f' is the cost function and 'd' is the distance between two nodes  and p(i) is an array of paths by salesman
 ```
@@ -27,13 +27,13 @@ p = 1/(1 + e^(delta(f)/T))
 
 
 ## Modified S.A
-we used the [Greedy hybrid operator](http://www.inderscience.com/info/inarticle.php?artid=71818) to move to the neighbouring node. We first choose randomly to index 'i' & 'j' and operator three operations viz inverse insert & swap and calculated the 'p' for each possible path and if it was greater then randomly genrated probability 'r' we moved forward else we continued.
+we used the [Greedy hybrid operator](http://www.inderscience.com/info/inarticle.php?artid=71818) to move to the neighbouring node. We first choose randomly to index 'i' & 'j' and operator three operations viz inverse insert and swap and calculated the 'p' for each possible path and if it was greater than randomly generated probability 'r' we moved forward else we continued.
 
-1. *Inverse* operator : It reverses the sub-path from path from indexes 'i' and 'j'.
-2. *Insert* operator : It cycles down the sub-path from indexes 'i' and 'j'. 
+1. *Inverse* operator : It reverses the subpath from path from indexes 'i' and 'j'.
+2. *Insert* operator : It cycles down the subpath from indexes 'i' and 'j'. 
 3. *swap* operator : It swapes the path[i] and path[j] elements.
 
-## Temperator Simulation.
+## Temperature Simulation.
 we used the [classical geometric cooling schedule](https://view.officeapps.live.com/op/view.aspx?src=http://www.cs.nott.ac.uk/~pszgxk/aim/notes/simulatedannealing.doc) for simulated temperature cooling. 
 
 ## Instruction
@@ -55,15 +55,15 @@ Results are displayed below in table.
 
 | TestCase      | Distance      | 
 | ------------- |:-------------:| 
-| euc_100       | 1522.217651   | 
+| euc_100       | 1497.217651   | 
 | euc_250       | 2516.678467   | 
 | euc_500       | 3554.416260   |
 | noneuc_100    | 5216.49072    | 
 | noneuc_250    | 12799.088867  | 
-| noneuc_500    | 25437.474609  | 
+| noneuc_500    | 25380.828125  | 
 
 ## About
-The Assignment's aim was to solve Travelling salesman problem. This Assignement was under Prof. [Deepak Khemani](https://www.iitm.ac.in/info/fac/khemani).
+The Assignment's aim was to solve Travelling salesman problem. This Assignment was under Prof. [Deepak Khemani](https://www.iitm.ac.in/info/fac/khemani).
 
 ## Contributors
 
