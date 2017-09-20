@@ -38,6 +38,10 @@ int main(){
 	int n;
 	int a,b;
 	float r,p,T;
+	time_t start, end;
+   	double elapsed;  // seconds
+   	start = time(NULL);
+   	int terminate = 1;
 
 
 	scanf("%s%d",type,&n);
@@ -81,10 +85,13 @@ int main(){
 	int counter = 0;
 	int k = 10;
 	srand ( time(NULL) );
-		while(1)
+		while(terminate)
 		{
-			
-					
+			end = time(NULL);
+     		elapsed = difftime(end, start);
+     		//printf("\nelapsed :: %lf",elapsed);
+			if (elapsed >= 300.0 /* seconds */)
+       		terminate = 0;		
 				  	 a = rand()%n;
 				  	 b = rand()%n;
 
